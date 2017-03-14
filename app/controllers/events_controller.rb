@@ -8,6 +8,7 @@ class EventsController < ApplicationController
   end
 
   def show
+    @categories = @event.categories
   end
 
   def new
@@ -41,6 +42,6 @@ class EventsController < ApplicationController
     end
 
     def event_params
-      params.require(:event).permit(:name, :description, :location, :price, :capacity, :includes_food, :includes_drinks, :starts_at, :ends_at, :active)
+      params.require(:event).permit(:name, :description, :location, :includes_food, :includes_drinks, :price, :starts_at, :ends_at, :capacity, :active, category_ids: [])
     end
 end

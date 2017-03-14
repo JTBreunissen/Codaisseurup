@@ -3,7 +3,7 @@
 
   <div class="panel-body">
 
-    <p>Name: <%= @event.name %></p>
+    <h4>Name: <%= @event.name %></h4>
     <p>From: <%= @event.starts_at %></p>
     <p>To: <%= @event.ends_at %></p>
     <hr>
@@ -24,6 +24,11 @@
       <li><%= !@event.includes_food ? ("<del>Food</del>").html_safe : "Food" %></li>
       <li><%= !@event.includes_drinks ? ("<del>Drinks</del>").html_safe : "Drinks" %></li>
     </ul>
+    <hr>
+    <h4>Categories</h4>
+    <% @categories.each do |theme| %>
+    <span class="label label-info"><%= theme.name %></span>
+    <% end %>
 
   </div>
 

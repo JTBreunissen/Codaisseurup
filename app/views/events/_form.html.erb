@@ -33,6 +33,8 @@
       <%= f.number_field :capacity, placeholder: "maximum visitors", class: "form-control" %>
     </div>
   </div>
+  <hr>
+  <label>Date</label>
 
   <div class="form-group">
     <label>Start date</label>
@@ -43,7 +45,7 @@
     <label>End date</label>
     <%= f.datetime_select :ends_at %>
   </div>
-
+  <hr>
   <label>Amenities</label>
   <div class="form-group">
     <%= f.check_box :includes_food %> Food
@@ -51,7 +53,15 @@
   <div class="form-group">
     <%= f.check_box :includes_drinks %> Drinks
   </div>
+  <hr>
+  <label>Categories</label>
 
+  <%= f.collection_check_boxes(:category_ids, Category.all, :id, :name) do |b| %>
+    <div class="form-group">
+      <%= b.check_box(class: "check_box") %> <%= b.object.name %>
+    </div>
+  <% end %>
+  <hr>
   <label>Publish this event?</label>
 
  <div class="form-group">
