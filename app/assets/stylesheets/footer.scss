@@ -1,0 +1,25 @@
+html {
+  position: relative;
+  min-height: 100%;
+  background-color: #fffbf2;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+  background-color: #fffbf2;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 50px;
+  line-height: 50px; /* Vertically center the text there */
+  background-color: #b5ffaa;
+  border-top: 1px solid;
+  font-color: white;
+}
+
+nav navbar-default navbar-static-top {
+  background-color: #ffeec6;
+}
