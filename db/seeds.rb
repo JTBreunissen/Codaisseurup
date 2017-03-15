@@ -1,14 +1,6 @@
-gem 'Faker'
-
 User.destroy_all
 Category.destroy_all
 
-
-10.times do
-  Category.create!(
-    name: Faker::Ancient.god
-  )
-end
 
 rock = Category.create ({name:"Rock"})
 dance = Category.create ({name:"Dance"})
