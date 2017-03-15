@@ -8,6 +8,6 @@ class Profile < ApplicationRecord
   end
 
   def self.by_initial(letter)
-   where("first_name LIKE ?", "#{letter}%").order(:first_name)
+   where("first_name LIKE ?", "%#{letter}%").order(:first_name)
   end
 end

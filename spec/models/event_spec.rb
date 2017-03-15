@@ -40,4 +40,29 @@ RSpec.describe Event, type: :model do
      expect(Event.order_by_price).to eq([event1, event2, event3])
    end
  end
+
+ describe "association with user" do
+  let(:user) { create :user }
+
+    it "belongs to a user" do
+      event = user.events.new(description: "Too bad")
+
+      expect(event.user).to eq(user)
+    end
+  end
+
+  describe "association with category" do
+    let(:event) { create :event }
+
+    let(:category1) { create :category, name: "Rock", events: [event] }
+    let(:category2) { create :category, name: "Dance", events: [event] }
+    let(:category3) { create :category, name: "HipHop", events: [event] }
+
+    it "has categories" do
+      expect(event.categories).to include(category1)
+      expect(event.categories).to include(category2)
+      expect(event.categories).to include(category3)
+    end
+  end
+
 end
