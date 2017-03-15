@@ -23,3 +23,12 @@ describe "shared/_navbar.html.erb" do
     end
   end
 end
+
+
+describe "shared/_navbar.html.erb" do
+  it "renders log in and sign up links" do
+    render
+    expect(rendered).to have_link('Log In', href: new_user_session_path)
+    expect(rendered).to have_link('Sign Up', href: new_user_registration_path)
+  end
+end
