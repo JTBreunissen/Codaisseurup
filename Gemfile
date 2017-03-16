@@ -70,3 +70,5 @@ gem 'devise', '~> 4.2'
 gem 'rails_12factor', group: :production
 
 ruby '2.3.1'
+
+gem 'carrierwave', '0.11.2'
