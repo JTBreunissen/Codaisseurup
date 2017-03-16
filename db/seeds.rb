@@ -27,6 +27,10 @@ photo5 = Photo.create(remote_image_url: "http://res.cloudinary.com/dzp8l5ltr/ima
 photo6 = Photo.create(remote_image_url: "http://res.cloudinary.com/dzp8l5ltr/image/upload/v1489670904/concert2_mndkqk.jpg")
 photo7 = Photo.create(remote_image_url: "http://res.cloudinary.com/dzp8l5ltr/image/upload/v1489670904/concert_isby0m.jpg")
 
+#def random_photo
+#  randomphoto= "photo" + rand(7).to_s
+#end
+
 10.times do
   Event.create!(
     name:Faker::Book.title,
@@ -41,6 +45,6 @@ photo7 = Photo.create(remote_image_url: "http://res.cloudinary.com/dzp8l5ltr/ima
     active:true,
     user: user1,
     categories: [rock, dance],
-    photos: [photo1, photo2, photo3, photo4, photo5, photo6, photo7]
+    photos: [photo1]
   )
 end
