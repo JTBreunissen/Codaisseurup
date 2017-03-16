@@ -4,6 +4,9 @@
       <li class="sidebar-item"><%= link_to "Your Listings", events_path, class: "sidebar-link active" %></li>
       <li class="sidebar-item"><%= link_to "Your Reservations", events_path, class: "sidebar-link" %></li>
     </ul>
+
+    <%= link_to "Add new event", new_event_path, class: "btn btn-primary" %>
+    <br>
   </div>
   <div class="col-md-9">
     <div class="panel panel-primary">
@@ -27,6 +30,6 @@
       </div>
     </div>
 
-    <%= link_to "Add new place", new_event_path, class: "btn btn-primary" %>
+    <%= link_to "Add new event", new_event_path, class: "btn btn-primary" %>
   </div>
 </div>

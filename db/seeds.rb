@@ -24,6 +24,7 @@ user1 = User.create ( { email: "jantjarco@codaisseurup.com", password: "fakepass
     capacity: Faker::Number.between(15, 1000),
     includes_food: Faker::Boolean.boolean,
     includes_drinks: Faker::Boolean.boolean,
+    price: Faker::Number.decimal(2),
     starts_at: 10.days.from_now,
     ends_at: 12.days.from_now,
     active:true,
