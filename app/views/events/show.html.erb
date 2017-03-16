@@ -25,6 +25,12 @@
       <li><%= !@event.includes_drinks ? ("<del>Drinks</del>").html_safe : "Drinks" %></li>
     </ul>
     <hr>
+
+    <h4>Photos</h4>
+    <% @photos.each do |photo| %>
+      <%= image_tag photo.image %>
+    <% end %>
+    
     <h4>Categories</h4>
     <% @categories.each do |theme| %>
     <span class="label label-info"><%= theme.name %></span>

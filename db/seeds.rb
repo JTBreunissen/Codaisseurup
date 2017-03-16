@@ -1,5 +1,8 @@
-User.destroy_all
-Category.destroy_all
+Photo.delete_all
+Category.delete_all
+Event.delete_all
+Profile.delete_all
+User.delete_all
 
 10.times do
   Category.create!(
@@ -16,8 +19,16 @@ hiphop= Category.create! ({name:"HipHop"})
 
 user1 = User.create ( { email: "jantjarco@codaisseurup.com", password: "fakepassword"})
 
+photo1 = Photo.create(remote_image_url: "http://res.cloudinary.com/dzp8l5ltr/image/upload/v1489670904/meeting_enxjuf.jpg")
+photo2 = Photo.create(remote_image_url: "http://res.cloudinary.com/dzp8l5ltr/image/upload/v1489670904/lowlands2_my75b5.jpg")
+photo3 = Photo.create(remote_image_url: "http://res.cloudinary.com/dzp8l5ltr/image/upload/v1489670904/lowlands_xn0fpm.jpg")
+photo4 = Photo.create(remote_image_url: "http://res.cloudinary.com/dzp8l5ltr/image/upload/v1489670904/crowd_uxe0k4.jpg")
+photo5 = Photo.create(remote_image_url: "http://res.cloudinary.com/dzp8l5ltr/image/upload/v1489670904/concert3_iw5bxp.png")
+photo6 = Photo.create(remote_image_url: "http://res.cloudinary.com/dzp8l5ltr/image/upload/v1489670904/concert2_mndkqk.jpg")
+photo7 = Photo.create(remote_image_url: "http://res.cloudinary.com/dzp8l5ltr/image/upload/v1489670904/concert_isby0m.jpg")
+
 10.times do
-  Event.create!({
+  Event.create!(
     name:Faker::Book.title,
     description:Faker::Hipster.paragraph,
     location:Faker::Address.city,
@@ -29,6 +40,7 @@ user1 = User.create ( { email: "jantjarco@codaisseurup.com", password: "fakepass
     ends_at: 12.days.from_now,
     active:true,
     user: user1,
-    categories: [rock, dance]
-  })
+    categories: [rock, dance],
+    photos: [photo1, photo2, photo3, photo4, photo5, photo6, photo7]
+  )
 end
