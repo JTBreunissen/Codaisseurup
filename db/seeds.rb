@@ -22,17 +22,12 @@ user1 = User.create ( { email: "jantjarco@codaisseurup.com", password: "fakepass
 photo1 = Photo.create(remote_image_url: "http://res.cloudinary.com/dzp8l5ltr/image/upload/v1489670904/meeting_enxjuf.jpg")
 photo2 = Photo.create(remote_image_url: "http://res.cloudinary.com/dzp8l5ltr/image/upload/v1489670904/lowlands2_my75b5.jpg")
 photo3 = Photo.create(remote_image_url: "http://res.cloudinary.com/dzp8l5ltr/image/upload/v1489670904/lowlands_xn0fpm.jpg")
-photo4 = Photo.create(remote_image_url: "http://res.cloudinary.com/dzp8l5ltr/image/upload/v1489670904/crowd_uxe0k4.jpg")
-photo5 = Photo.create(remote_image_url: "http://res.cloudinary.com/dzp8l5ltr/image/upload/v1489670904/concert3_iw5bxp.png")
-photo6 = Photo.create(remote_image_url: "http://res.cloudinary.com/dzp8l5ltr/image/upload/v1489670904/concert2_mndkqk.jpg")
-photo7 = Photo.create(remote_image_url: "http://res.cloudinary.com/dzp8l5ltr/image/upload/v1489670904/concert_isby0m.jpg")
 
 #def random_photo
 #  randomphoto= "photo" + rand(7).to_s
 #end
 
-10.times do
-  Event.create!(
+event1=  Event.create!(
     name:Faker::Book.title,
     description:Faker::Hipster.paragraph,
     location:Faker::Address.city,
@@ -47,4 +42,40 @@ photo7 = Photo.create(remote_image_url: "http://res.cloudinary.com/dzp8l5ltr/ima
     categories: [rock, dance],
     photos: [photo1]
   )
+
+event2=  Event.create!(
+      name:Faker::Book.title,
+      description:Faker::Hipster.paragraph,
+      location:Faker::Address.city,
+      capacity: Faker::Number.between(15, 1000),
+      includes_food: Faker::Boolean.boolean,
+      includes_drinks: Faker::Boolean.boolean,
+      price: Faker::Number.decimal(2),
+      starts_at: 10.days.from_now,
+      ends_at: 12.days.from_now,
+      active:true,
+      user: user1,
+      categories: [rock, dance],
+      photos: [photo2]
+    )
 end
+
+event3=  Event.create!(
+      name:Faker::Book.title,
+      description:Faker::Hipster.paragraph,
+      location:Faker::Address.city,
+      capacity: Faker::Number.between(15, 1000),
+      includes_food: Faker::Boolean.boolean,
+      includes_drinks: Faker::Boolean.boolean,
+      price: Faker::Number.decimal(2),
+      starts_at: 10.days.from_now,
+      ends_at: 12.days.from_now,
+      active:true,
+      user: user1,
+      categories: [rock, dance],
+      photos: [photo3]
+    )
+end
+
+Registration.create(event: event1, user: user1, price: 50, guest_count: 2 )
+Registration.create(event: event2, user: user1, price: 100, guest_count: 3 )

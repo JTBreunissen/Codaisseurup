@@ -10,11 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170316132224) do
+ActiveRecord::Schema.define(version: 20170317094507) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "adminpack"
+
+  create_table "bookings", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "event_id"
+    t.datetime "starts_at"
+    t.datetime "ends_at"
+    t.decimal  "price"
+    t.decimal  "total"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_bookings_on_event_id", using: :btree
+    t.index ["user_id"], name: "index_bookings_on_user_id", using: :btree
+  end
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -62,6 +75,17 @@ ActiveRecord::Schema.define(version: 20170316132224) do
     t.index ["user_id"], name: "index_profiles_on_user_id", using: :btree
   end
 
+  create_table "registrations", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "event_id"
+    t.decimal  "price"
+    t.decimal  "guest_count"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["event_id"], name: "index_registrations_on_event_id", using: :btree
+    t.index ["user_id"], name: "index_registrations_on_user_id", using: :btree
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -79,7 +103,11 @@ ActiveRecord::Schema.define(version: 20170316132224) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "bookings", "events"
+  add_foreign_key "bookings", "users"
   add_foreign_key "events", "users"
   add_foreign_key "photos", "events"
   add_foreign_key "profiles", "users"
+  add_foreign_key "registrations", "events"
+  add_foreign_key "registrations", "users"
 end
