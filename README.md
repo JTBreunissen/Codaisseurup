@@ -2,7 +2,7 @@
 
 This is a Ruby on Rails App that was used as a practice assignment during the Codaisseur Academy. In it we used Bootstrap to create a Meetup-like website.
 
- [![](http://i.imgur.com/3ok62dk.png)
+ ![](http://i.imgur.com/3ok62dk.png)
 
 
 ## Run the app
